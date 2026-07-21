@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kristin Grube — Perform When It Matters Most</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0D0D0D;
+    --off-white: #F7F5F0;
+    --green: #2D4A3E;
+    --green-light: #3D6B5A;
+    --gold: #B8963E;
+    --mid: #6B6B6B;
+    --border: #E0DDD8;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--off-white); color: var(--black); line-height: 1.6; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.3s;
+  }
+  nav.scrolled { background: var(--off-white); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 0.05em; color: white; text-decoration: none; }
+  nav.scrolled .nav-logo { color: var(--black); }
+  .nav-cta {
+    background: var(--gold); color: white; padding: 0.6rem 1.4rem;
+    border-radius: 2px; text-decoration: none; font-size: 0.85rem;
+    font-weight: 500; letter-spacing: 0.03em; transition: background 0.2s;
+  }
+  .nav-cta:hover { background: #a07d30; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: flex-end; position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: url('4erGo.png') center/cover no-repeat;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.2) 100%);
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 4rem 2rem 6rem; max-width: 900px; margin: 0 auto; width: 100%;
+  }
+  .eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 1.5rem; display: block;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.05; margin-bottom: 1.5rem; font-weight: 400; color: white;
+  }
+  .hero h1 em { font-style: italic; color: var(--gold); }
+  .hero-sub {
+    font-size: 1.1rem; color: rgba(255,255,255,0.7);
+    max-width: 520px; line-height: 1.7; margin-bottom: 2.5rem;
+  }
+  .btn-gold {
+    background: var(--gold); color: white; padding: 1rem 2.5rem;
+    border-radius: 2px; text-decoration: none; font-size: 0.9rem;
+    font-weight: 500; letter-spacing: 0.03em; transition: background 0.2s; display: inline-block;
+  }
+  .btn-gold:hover { background: #a07d30; }
+
+  /* MIRROR — who this is for */
+  .mirror {
+    background: var(--black); color: white;
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 700px) { .mirror { grid-template-columns: 1fr; } }
+  .mirror-img {
+    background: url('4erMirror.png') center/cover no-repeat;
+    min-height: 500px;
+  }
+  .mirror-content { padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .mirror-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400; margin-bottom: 2rem; line-height: 1.2;
+  }
+  .mirror-content h2 em { font-style: italic; color: var(--gold); }
+  .mirror-list { list-style: none; }
+  .mirror-list li {
+    padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.9rem; color: rgba(255,255,255,0.65);
+    line-height: 1.6; display: flex; gap: 0.8rem;
+  }
+  .mirror-list li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+
+  /* TRUTH */
+  .truth { background: var(--green); color: white; padding: 5rem 2rem; text-align: center; }
+  .truth .container { max-width: 780px; margin: 0 auto; }
+  .truth blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    line-height: 1.4; font-weight: 400; font-style: italic; margin-bottom: 1.5rem;
+  }
+  .truth p { font-size: 1rem; opacity: 0.7; line-height: 1.7; }
+
+  /* HANDS — the moment before */
+  .hands {
+    display: grid; grid-template-columns: 1fr 1fr;
+    background: var(--off-white);
+  }
+  @media (max-width: 700px) { .hands { grid-template-columns: 1fr; } }
+  .hands-content { padding: 5rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .hands-content h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 400; margin-bottom: 1.2rem; line-height: 1.2;
+  }
+  .hands-content p { color: var(--mid); line-height: 1.8; font-size: 0.95rem; margin-bottom: 1rem; }
+  .hands-img {
+    background: url('4erHand.png') center/cover no-repeat;
+    min-height: 500px;
+  }
+
+  /* WHO */
+  .who { background: white; padding: 5rem 2rem; }
+  .who .container { max-width: 900px; margin: 0 auto; }
+  .who h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 400; margin-bottom: 0.8rem;
+  }
+  .who-sub { color: var(--mid); font-size: 0.95rem; margin-bottom: 3rem; max-width: 580px; line-height: 1.7; }
+  .who-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  @media (max-width: 640px) { .who-grid { grid-template-columns: 1fr; } }
+  .who-card { background: white; padding: 2rem; }
+  .who-card.featured { background: var(--green); color: white; }
+  .who-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+  .who-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 400; margin-bottom: 0.6rem; }
+  .who-card p { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
+  .who-card.featured p { color: rgba(255,255,255,0.7); }
+
+  /* DOORS */
+  .doors { background: var(--off-white); padding: 5rem 2rem; }
+  .doors .container { max-width: 900px; margin: 0 auto; }
+  .doors h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; margin-bottom: 0.8rem; }
+  .doors-sub { color: var(--mid); font-size: 0.95rem; margin-bottom: 3rem; line-height: 1.7; }
+  .doors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 640px) { .doors-grid { grid-template-columns: 1fr; } }
+  .door {
+    border: 1px solid var(--border); padding: 2.5rem; text-decoration: none;
+    color: var(--black); transition: all 0.2s; display: block; position: relative; overflow: hidden; background: white;
+  }
+  .door::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px;
+    background: var(--green); transform: scaleX(0); transition: transform 0.3s;
+  }
+  .door:hover { border-color: var(--green); }
+  .door:hover::after { transform: scaleX(1); }
+  .door.featured { background: var(--green); color: white; border-color: var(--green); }
+  .door.featured::after { background: var(--gold); }
+  .door-tag { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 1rem; }
+  .door.featured .door-tag { color: rgba(255,255,255,0.6); }
+  .door h3 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 400; margin-bottom: 0.8rem; line-height: 1.2; }
+  .door p { font-size: 0.85rem; line-height: 1.7; color: var(--mid); margin-bottom: 1.5rem; }
+  .door.featured p { color: rgba(255,255,255,0.7); }
+  .door-link { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green); }
+  .door.featured .door-link { color: var(--gold); }
+
+  /* ABOUT */
+  .about { background: var(--black); color: white; padding: 5rem 2rem; }
+  .about .container { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; align-items: center; }
+  @media (max-width: 640px) { .about .container { grid-template-columns: 1fr; gap: 2rem; } }
+  .about-photo { aspect-ratio: 3/4; background: url('Pic_Kristin.png') center/cover no-repeat; background-color: var(--green); filter: grayscale(30%); }
+  .about h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; margin-bottom: 1.2rem; line-height: 1.2; }
+  .about p { font-size: 0.95rem; color: rgba(255,255,255,0.65); line-height: 1.8; margin-bottom: 1rem; }
+  .about-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
+  .tag { font-size: 0.75rem; padding: 0.35rem 0.8rem; border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.5); }
+
+  /* CTA */
+  .cta-section { background: var(--green); color: white; padding: 5rem 2rem; text-align: center; }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 400; margin-bottom: 1rem; line-height: 1.2; }
+  .cta-section h2 em { font-style: italic; color: var(--gold); }
+  .cta-section p { color: rgba(255,255,255,0.65); margin-bottom: 2.5rem; font-size: 1rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+
+  footer { background: var(--black); color: rgba(255,255,255,0.35); text-align: center; padding: 2rem; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.06); }
+  footer a { color: rgba(255,255,255,0.35); text-decoration: none; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="nav-logo">Kristin Grube</a>
+  <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="nav-cta" target="_blank">Schedule a Call</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <span class="eyebrow reveal">Mental Performance Coaching</span>
+    <h1 class="reveal">Perform when<br><em>it matters most.</em></h1>
+    <p class="hero-sub reveal">High performance doesn't break down because of a lack of skill. It breaks down because pressure changes how we think, feel and perform.</p>
+    <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="btn-gold reveal" target="_blank">Schedule a Free Call</a>
+  </div>
+</section>
+
+<!-- MIRROR -->
+<section class="mirror">
+  <div class="mirror-img"></div>
+  <div class="mirror-content">
+    <span class="eyebrow reveal">This is for you if</span>
+    <h2 class="reveal">You know what you're capable of.<br><em>But can't always access it.</em></h2>
+    <ul class="mirror-list reveal">
+      <li>You perform brilliantly in training — but not when it counts</li>
+      <li>Pressure changes the way you think and perform — and not for the better</li>
+      <li>One mistake snowballs into the next</li>
+      <li>Confidence comes and goes, unpredictably</li>
+      <li>You're overthinking when you should be executing</li>
+      <li>You know the answer — but something is in the way</li>
+    </ul>
+  </div>
+</section>
+
+<!-- TRUTH -->
+<section class="truth">
+  <div class="container">
+    <blockquote class="reveal">"I don't improve your technical ability. I help you access it when it matters most."</blockquote>
+    <p class="reveal">The challenge is rarely a lack of preparation. It's what happens in the mind when the stakes get real.</p>
+  </div>
+</section>
+
+<!-- HANDS -->
+<section class="hands">
+  <div class="hands-content">
+    <span class="eyebrow reveal">The moment before</span>
+    <h2 class="reveal">Every profession has one.</h2>
+    <p class="reveal">The surgeon before the first incision. The pilot before landing in zero visibility. The executive before the board presentation. The athlete before the starting gun.</p>
+    <p class="reveal">That moment doesn't care how much you've prepared. It only cares what's happening in your mind right now.</p>
+    <p class="reveal">That's where this work begins.</p>
+  </div>
+  <div class="hands-img"></div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div class="container">
+    <span class="eyebrow reveal">Who I work with</span>
+    <h2 class="reveal">Different professions. Same challenge.</h2>
+    <p class="who-sub reveal">Performing at your best when it matters most — regardless of your field, your level, or what's at stake.</p>
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <div class="who-icon">🏅</div>
+        <h3>Athletes</h3>
+        <p>From polo and tennis to marathon runners and team sport competitors. Any level, any discipline — if the mental game is holding you back, this is where we start.</p>
+      </div>
+      <div class="who-card featured reveal">
+        <div class="who-icon">✈️</div>
+        <h3>Pilots</h3>
+        <p>Annual checks, simulator sessions, line checks. The technical knowledge is there. Performing under evaluation is a different challenge entirely.</p>
+      </div>
+      <div class="who-card featured reveal">
+        <div class="who-icon">🏥</div>
+        <h3>Surgeons & Physicians</h3>
+        <p>High-stakes environments where focus, composure and precision are non-negotiable. Mental performance is part of clinical performance.</p>
+      </div>
+      <div class="who-card reveal">
+        <div class="who-icon">💼</div>
+        <h3>Executives & Leaders</h3>
+        <p>Leading under pressure, making decisions that matter, performing in front of boards, clients and teams — when the stakes are real, the mental game is everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOORS -->
+<section class="doors">
+  <div class="container">
+    <span class="eyebrow reveal">Where to go next</span>
+    <h2 class="reveal">Choose your path.</h2>
+    <p class="doors-sub reveal">Two focused offerings — one for athletes, one for everyone else who performs under pressure.</p>
+    <div class="doors-grid">
+      <a href="https://athletes.kristingrube.com" class="door featured reveal">
+        <p class="door-tag">Athletes</p>
+        <h3>Mental Performance Coaching</h3>
+        <p>Structured packages for athletes who want to close the gap between training performance and competition performance.</p>
+        <span class="door-link">Go to Athletes site →</span>
+      </a>
+      <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="door reveal" target="_blank">
+        <p class="door-tag">Executives · Pilots · Surgeons</p>
+        <h3>Performance Under Pressure</h3>
+        <p>Tailored work for professionals whose performance matters most when the pressure is highest. Start with a free 15-minute call.</p>
+        <span class="door-link">Schedule a call →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-photo reveal"></div>
+    <div>
+      <span class="eyebrow reveal">About Kristin</span>
+      <h2 class="reveal">I've been on both sides of pressure.</h2>
+      <p class="reveal">Mental performance coaching has been part of my work throughout my career — working with athletes across disciplines to help them close the gap between how they train and how they perform when it counts.</p>
+      <p class="reveal">Alongside that, I spent 15 years as a General Manager and operational leader across MENA and Europe — making high-stakes decisions under pressure, restructuring organizations, and leading turnarounds. The mental game of sport and the mental game of leadership are closer than most people think.</p>
+      <p class="reveal">As a polo player and marathon finisher, I know from the inside what it takes to perform when it counts.</p>
+      <p class="reveal">I work remotely, worldwide.</p>
+      <div class="about-tags reveal">
+        <span class="tag">Mental Performance</span>
+        <span class="tag">Polo</span>
+        <span class="tag">MENA & Europe</span>
+        <span class="tag">Remote · Worldwide</span>
+        <span class="tag">All Disciplines</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="reveal">Every great performance<br>starts with <em>one conversation.</em></h2>
+  <p class="reveal">If you're facing performance challenges that are too important to leave to chance — let's talk. No pitch, no pressure. Just an honest conversation about where you are and whether I'm the right person to help.</p>
+  <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="btn-gold reveal" target="_blank">Schedule a Free Call</a>
+</section>
+
+<footer>
+  <p>© 2025 Kristin Grube · <a href="https://athletes.kristingrube.com">Athletes</a> · <a href="mailto:kristingrube.coaching@gmail.com">kristingrube.coaching@gmail.com</a></p>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
