@@ -151,7 +151,7 @@
   .doors .container { max-width: 900px; margin: 0 auto; }
   .doors h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 400; margin-bottom: 0.8rem; }
   .doors-sub { color: var(--mid); font-size: 0.95rem; margin-bottom: 3rem; line-height: 1.7; }
-  .doors-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .doors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
   @media (max-width: 640px) { .doors-grid { grid-template-columns: 1fr; } }
   .door {
     border: 1px solid var(--border); padding: 2.5rem; text-decoration: none;
@@ -288,19 +288,25 @@
   <div class="container">
     <span class="eyebrow reveal">Where to go next</span>
     <h2 class="reveal">Choose your path.</h2>
-    <p class="doors-sub reveal">Two focused offerings — one for athletes, one for everyone else who performs under pressure.</p>
+    <p class="doors-sub reveal">Three focused offerings — one for athletes, one for professionals performing under pressure, and one for anger management.</p>
     <div class="doors-grid">
+      <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="door reveal" target="_blank">
+        <p class="door-tag">Executives · Pilots · Surgeons</p>
+        <h3>Performance Under Pressure</h3>
+        <p>Tailored work for professionals whose performance matters most when the pressure is highest. Start with a free 15-minute call.</p>
+        <span class="door-link">Schedule a call →</span>
+      </a>
       <a href="https://athletes.kristingrube.com" class="door featured reveal">
         <p class="door-tag">Athletes</p>
         <h3>Mental Performance Coaching</h3>
         <p>Structured packages for athletes who want to close the gap between training performance and competition performance.</p>
         <span class="door-link">Go to Athletes site →</span>
       </a>
-      <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="door reveal" target="_blank">
-        <p class="door-tag">Executives · Pilots · Surgeons</p>
-        <h3>Performance Under Pressure</h3>
-        <p>Tailored work for professionals whose performance matters most when the pressure is highest. Start with a free 15-minute call.</p>
-        <span class="door-link">Schedule a call →</span>
+      <a href="https://anger.kristingrube.com" class="door reveal">
+        <p class="door-tag">Anger Management</p>
+        <h3>Reactions Under Control</h3>
+        <p>Practical coaching for anger that shows up behind the wheel, at work, or at home — before it costs you something bigger.</p>
+        <span class="door-link">Go to Anger Management site →</span>
       </a>
     </div>
   </div>
@@ -336,7 +342,7 @@
 </section>
 
 <footer>
-  <p>© 2025 Kristin Grube · <a href="https://athletes.kristingrube.com">Athletes</a> · <a href="mailto:kristingrube.coaching@gmail.com">kristingrube.coaching@gmail.com</a></p>
+  <p>© 2025 Kristin Grube · <a href="https://athletes.kristingrube.com">Athletes</a> · <a href="https://anger.kristingrube.com">Anger Management</a> · <a href="mailto:kristingrube.coaching@gmail.com">kristingrube.coaching@gmail.com</a></p>
 </footer>
 
 <script>
