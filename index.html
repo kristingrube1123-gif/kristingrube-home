@@ -260,6 +260,12 @@
   border-radius:34px;
   box-shadow:0 20px 55px rgba(13,13,13,.14);
 }
+.final-hero-media{position:relative}
+.final-hero-link{position:absolute;z-index:5;display:block;top:61%;height:12%;}
+.final-hero-link--athletes{left:2.4%;width:13.8%;}
+.final-hero-link--leadership{left:54.1%;width:13.2%;}
+.final-hero-link:focus-visible{outline:2px solid #B8963E;outline-offset:3px}
+
 @media(max-width:700px){
   .final-hero{padding:16px 12px 28px}
   .final-hero img{border-radius:22px}
@@ -289,7 +295,11 @@
 
 <section class="final-hero" aria-label="Kristin Grube — Mental Performance for Athletes and Women in Leadership">
   <div class="final-hero-inner">
-    <img src="kristin-hero.png" alt="Kristin Grube — Mental Performance for Athletes and Women in Leadership">
+    <div class="final-hero-media">
+      <img src="kristin-hero.png" alt="Kristin Grube — Mental Performance for Athletes and Women in Leadership">
+      <a class="final-hero-link final-hero-link--athletes" href="https://athletes.kristingrube.com/" aria-label="Learn more about mental performance coaching for athletes"></a>
+      <a class="final-hero-link final-hero-link--leadership" href="https://leadership.kristingrube.com/" aria-label="Learn more about coaching for women in leadership"></a>
+    </div>
   </div>
 </section>
 
