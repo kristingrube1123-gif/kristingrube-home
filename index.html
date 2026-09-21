@@ -265,6 +265,23 @@
   .final-hero img{border-radius:22px}
 }
 
+
+/* Approved performance imagery */
+.performance-visual{
+  background-image:url('performance-moments.png');
+  background-repeat:no-repeat;
+  background-size:200% 200%;
+}
+.performance-visual--athlete{
+  background-position:left top;
+}
+.performance-visual--leader{
+  background-position:right bottom;
+}
+@media(max-width:800px){
+  .performance-visual{min-height:360px;background-size:200% 200%}
+}
+
 </style>
 </head>
 <body>
@@ -295,6 +312,7 @@
 
 <!-- MIRROR -->
 <section class="mirror">
+<div class="performance-visual performance-visual--athlete" aria-hidden="true"></div>
   <div class="mirror-img"></div>
   <div class="mirror-content">
     <span class="eyebrow reveal">This is for you if</span>
@@ -320,6 +338,7 @@
 
 <!-- HANDS -->
 <section class="hands">
+<div class="performance-visual performance-visual--leader" aria-hidden="true"></div>
   <div class="hands-content">
     <span class="eyebrow reveal">The moment before</span>
     <h2 class="reveal">Every profession has one.</h2>
