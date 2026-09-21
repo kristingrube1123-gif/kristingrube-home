@@ -219,9 +219,62 @@
  .world-copy{left:8%;right:8%;max-width:320px}
 }
 
+
+/* HOME SPLIT: the two selected Kristin images */
+.home-split{background:#0D0D0D}
+.home-split-grid{display:grid;grid-template-columns:1fr 1fr;min-height:680px}
+.home-split-card{position:relative;overflow:hidden;min-height:680px;background:#111}
+.home-split-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.home-split-card.athletes img{object-position:center center}
+.home-split-card.leadership img{object-position:center center}
+.home-split-card:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.66),rgba(13,13,13,.10) 70%)}
+.home-split-copy{position:absolute;z-index:2;left:7%;top:50%;transform:translateY(-50%);max-width:350px;color:#F7F5F0}
+.home-split-copy .goldline{width:70px;height:2px;background:#B8963E;margin-bottom:22px}
+.home-split-copy h2{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4vw,4.5rem);font-weight:400;line-height:.98;margin:0 0 20px}
+.home-split-copy h2 em{color:#B8963E;font-weight:400}
+.home-split-copy p{font-size:1rem;line-height:1.6;margin:0 0 18px;color:rgba(247,245,240,.9)}
+.home-split-copy small{display:block;font-size:.7rem;line-height:1.7;letter-spacing:.2em;text-transform:uppercase}
+.home-split-copy a{display:inline-block;margin-top:22px;padding:12px 18px;border:1px solid #B8963E;color:#F7F5F0;text-decoration:none;font-size:.7rem;letter-spacing:.17em;text-transform:uppercase}
+.home-split-claim{grid-column:1/-1;text-align:center;padding:30px 20px 36px;color:#F7F5F0;font-family:'Playfair Display',serif;font-size:clamp(1.2rem,2.2vw,2rem);font-style:italic}
+.home-split-claim span{color:#B8963E}
+@media(max-width:760px){
+ .home-split-grid{grid-template-columns:1fr}
+ .home-split-card{min-height:610px}
+ .home-split-copy{left:8%;right:8%;max-width:320px}
+}
+
+
+/* Main homepage hero — final combined Athletes + Women in Leadership artwork */
+.final-hero{
+  background:#F7F5F0;
+  padding:32px clamp(18px,4vw,64px) 44px;
+}
+.final-hero-inner{
+  max-width:1500px;
+  margin:0 auto;
+}
+.final-hero img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:34px;
+  box-shadow:0 20px 55px rgba(13,13,13,.14);
+}
+@media(max-width:700px){
+  .final-hero{padding:16px 12px 28px}
+  .final-hero img{border-radius:22px}
+}
+
 </style>
 </head>
 <body>
+
+<section class="final-hero" aria-label="Kristin Grube — Mental Performance for Athletes and Women in Leadership">
+  <div class="final-hero-inner">
+    <img src="kristin-hero.png" alt="Kristin Grube — Mental Performance for Athletes and Women in Leadership">
+  </div>
+</section>
+
 
 <nav id="nav">
   <a href="/" class="nav-logo">Kristin Grube</a>
@@ -365,6 +418,9 @@
   <p class="reveal">If you're facing performance challenges that are too important to leave to chance — let's talk. No pitch, no pressure. Just an honest conversation about where you are and whether I'm the right person to help.</p>
   <a href="https://calendly.com/kristingrube1123/15-min-assessment-call" class="btn-gold reveal" target="_blank">Schedule a Free Call</a>
 </section>
+
+
+
 
 <footer>
   <p>© 2025 Kristin Grube · <a href="https://athletes.kristingrube.com">Athletes</a> · <a href="https://anger.kristingrube.com">Anger Management</a> · <a href="mailto:kristingrube.coaching@gmail.com">kristingrube.coaching@gmail.com</a></p>
