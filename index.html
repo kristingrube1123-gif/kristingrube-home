@@ -289,6 +289,25 @@
   .performance-visual{min-height:360px;background-size:200% 200%}
 }
 
+/* CLIENT LOGOS — rotating strip */
+.clients{background:white;padding:0 2rem 4.5rem}
+.clients .container{max-width:900px;margin:0 auto;border-top:1px solid var(--border);padding-top:3rem;text-align:center}
+.clients-label{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--mid);margin-bottom:2rem}
+.clients-track{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.clients-row{display:flex;width:max-content;animation:clients-scroll 32s linear infinite}
+.clients-track:hover .clients-row{animation-play-state:paused}
+.clients-row ul{display:flex;align-items:center;gap:4rem;list-style:none;margin:0;padding:0 2rem}
+.clients-row img{height:44px;width:auto;max-width:140px;object-fit:contain;filter:grayscale(1);opacity:.6;transition:filter .3s,opacity .3s;display:block}
+.clients-row img:hover{filter:none;opacity:1}
+@keyframes clients-scroll{to{transform:translateX(-50%)}}
+@media(max-width:640px){.clients-row ul{gap:2.5rem;padding:0 1.25rem}.clients-row img{height:34px}}
+@media(prefers-reduced-motion:reduce){
+  .clients-row{animation:none;width:auto}
+  .clients-row ul[aria-hidden]{display:none}
+  .clients-row ul{flex-wrap:wrap;justify-content:center;row-gap:2rem}
+  .clients-track{-webkit-mask-image:none;mask-image:none}
+}
+
 </style>
 </head>
 <body>
@@ -384,6 +403,35 @@
         <div class="who-icon">💼</div>
         <h3>Executives & Leaders</h3>
         <p>Leading under pressure, making decisions that matter, performing in front of boards, clients and teams — when the stakes are real, the mental game is everything.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIENT LOGOS -->
+<section class="clients" aria-label="Organisations my clients come from">
+  <div class="container">
+    <p class="clients-label reveal">Clients I've coached come from</p>
+    <div class="clients-track">
+      <div class="clients-row">
+      <ul>
+        <li><img src="gig.png" alt="GIG" loading="lazy"></li>
+        <li><img src="irdike.png" alt="Irdike" loading="lazy"></li>
+        <li><img src="winpolo.jpg" alt="Win Polo" loading="lazy"></li>
+        <li><img src="adidas.png" alt="adidas" loading="lazy"></li>
+        <li><img src="gfk.png" alt="GfK" loading="lazy"></li>
+        <li><img src="almarai.png" alt="Almarai" loading="lazy"></li>
+        <li><img src="Sandiego.png" alt="San Diego" loading="lazy"></li>
+      </ul>
+      <ul aria-hidden="true">
+        <li><img src="gig.png" alt="" loading="lazy"></li>
+        <li><img src="irdike.png" alt="" loading="lazy"></li>
+        <li><img src="winpolo.jpg" alt="" loading="lazy"></li>
+        <li><img src="adidas.png" alt="" loading="lazy"></li>
+        <li><img src="gfk.png" alt="" loading="lazy"></li>
+        <li><img src="almarai.png" alt="" loading="lazy"></li>
+        <li><img src="Sandiego.png" alt="" loading="lazy"></li>
+      </ul>
       </div>
     </div>
   </div>
